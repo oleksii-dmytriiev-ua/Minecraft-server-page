@@ -838,7 +838,7 @@ section {
 
 @media screen and (max-width: 480px) {
   #sponsor .sponsor-image {
-    height: 200px;
+    height: 300px;
   }
 }
 
@@ -900,30 +900,30 @@ footer .footer-social > img {
   margin: 0 auto;
 }
 
+footer .footer-social > .socials {
+  margin-top: 10px; 
+}
+
 footer .footer-social > .socials > a {
   color: #ffffff;
   text-decoration: none;
-  margin: 0px 5px; /* Збільшено відступ між кнопками */
-  border-radius: 50%; /* Зроблено кнопки круглими */
-  display: inline-flex; /* Вирівнювання елементів всередині кнопки */
+  margin: 0px 5px; 
+  border-radius: 50%; 
+  display: inline-flex; 
   align-items: center;
   justify-content: center;
-  width: 40px; /* Ширина кнопки */
-  height: 40px; /* Висота кнопки */
-  font-size: 20px; /* Розмір іконок */
-  transition: background-color 0.3s, transform 0.3s; /* Анімація змін */
+  width: 40px; 
+  height: 40px; 
+  font-size: 20px; 
+  transition: background-color 0.3s, transform 0.3s; 
 }
 
 footer .footer-social > .socials > a:hover {
-  transform: scale(1.1); /* Збільшення кнопки при наведенні */
+  transform: scale(1.1); 
 }
 
-footer .footer-social > .socials > a.email {
-  background: #fdfdfd;
-}
-
-footer .footer-social > .socials > a.email i {
-  color: #ff0000; /* Червоний колір іконки */
+footer .footer-social > .socials > a.discord {
+  background: #5865F2; 
 }
 
 footer .footer-social > .socials > a.telegram {
@@ -934,6 +934,9 @@ footer .footer-social > .socials > a.youtube {
   background: #a82400;
 }
 
+footer .footer-social > .socials > a.tiktok {
+  background: #000000; 
+}
 
 footer .footer-store > a {
   display: inline-block;
