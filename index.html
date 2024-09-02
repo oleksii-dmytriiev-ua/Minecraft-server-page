@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="Schicksal Bedwars" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="img/logo.png" />
+
+    <title>Schicksal Bedwars</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link rel="canonical" href="" />
+
+    <!-- StyleSheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div id="loader">
+      <div class="preloader-background"></div>
+      <div class="preloader">
+        <img class="center-image" src="img/small-logo.png" draggable="false" alt="Server Logo" />
+        <div class="status">
+          <br />
+          <h1>Завантаження...</h1>
+          <br />
+          <noscript>Будь ласка, увімкніть JavaScript і перезавантажте сторінку.<br /></noscript>
+          Вам не потрібно нічого робити. Незабаром ви будете перенаправлені на запитуваний контент.
+          <br />
+          Будь ласка, зачекайте кілька секунд...
+        </div>
+      </div>
+    </div>
+
+    <main id="page">
+      <!-- Navbar -->
+      <div class="mobile-display">
+        <div class="mobile-mask"></div>
+        <div class="mobile-navbar">
+          <div class="mobile-navbar-header">
+            <div class="mobile-navbar-close mt-3">
+              <span class="js-menu-toggle"><i class="bx bx-x-circle"></i></span>
+            </div>
+          </div>
+          <div class="mobile-navbar-body"></div>
+        </div>
+      </div>
+
+      <header id="header" class="desktop-navbar" role="banner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <img class="navbar-brand" src="img/logo.png" draggable="false" alt="Server Logo" />
+                <span class="brand-text">
+                  <span class="brand-name">Schicksal</span>
+                  <span class="brand-name">Bedwars</span>
+                </span>
+              </div>
+              <div class="d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                  <ul class="navbar-menu js-clone-nav mr-auto">
+                    <li><a href="index.html" class="no-effect active"><span>Головна</span></a></li>
+                    <li><a href="#about" class="no-effect"><span>Про сервер</span></a></li>
+                    <li><a href="#games" class="no-effect"><span>Мапи</span></a></li>
+                    <li><a href="#sponsor" class="no-effect"><span>Косметика</span></a></li>
+                    <li><a href="#scroll-to-bottom" class="no-effect"><span>Про нас</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-menu-toggle d-xl-none">
+            <a href="#" class="js-menu-toggle no-effect">
+              <span class="h1"><i class="bx bx-menu"></i></span>
+            </a>
+          </div>
+        </div>
+      </header>
+      
+
+
+      <!-- Cookies -->
+      <div id="cookie-popup" style="display: none">
+        <div class="text-center" id="cookie-header">
+          <img src="img/icons/cookie.png" draggable="false" />
+        </div>
+        <div id="cookie-body">
+          <p>Цей сайт використовує файли cookie, щоб забезпечити вам найкращий досвід роботи на нашому сайті.</p>
+          <a href="https://www.cookieconsent.com/what-are-cookies/">Дізнайтеся більше...</a>
+          <div class="cookie-buttons">
+            <button id="btn-cookie" type="submit">Добре</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <section id="intro">
+        <div id="intro-image"></div>
+        <div id="intro-overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-sm-pull-12 animate__animated animate__fadeInLeft">
+              <h1 class="section-title animate__animated animate__fadeInDown">
+    <span style="color: #1a8cd8;">Schicksal</span> 
+    <span style="color: #e2b800;">Bedwars</span>
+</h1>
+
+              <p class="animate__animated animate__fadeInLeft">Ласкаво просимо до Schicksal Bedwars, серверу, присвяченого легендарній міні-грі Bedwars!</b>. Грайте на найкращих мапах, прямо перенесених з Hypixel, та насолоджуйтесь захоплюючими битвами, які ми для вас підготували.</p>
+              <button id="copyip" class="animate__animated animate__fadeInLeft" value="schbedwars.minecra.fr">Скопіювати ip</button>
+            </div>
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 justify-content-center text-center col-sm-push-12 animate__animated animate__fadeInRight">
+            </div>
+          </div>
+          <div class="text-center arrow animate__animated animate__fadeInUp">
+            <img id="intro-arrow" class="bounce animated hinge animated infinite" src="img/icons/chevron-down.png" draggable="false" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="img/about.png" class="logo" draggable="false" alt="" />
+          </div>
+          <div class="col-md-8">
+            <div class="mg-top-40">
+              <h4 class="section-title"><strong>Schicksal Bedwars</strong></h4>
+              <div class="about-us">
+                <p>Наш сервер — це ідеальне місце для всіх фанатів Bedwars! Підтримуємо як піратські, так і ліцензійні акаунти. Сервер працює на ванільній версії Minecraft Java Edition (1.19.4 - 1.20.1). Кожен гравець має можливість завантажити свій власний скін, що робить гру ще більш персоналізованою.</p>
+                <p>
+                  Ви зможете насолоджуватись захоплюючими картами з Hypixel, відкривати кейси, отримувати ексклюзивну косметику та заводити домашніх улюбленців. Наша ігрова економіка дозволяє заробляти та витрачати внутрішньоігрову валюту, а регулярні промокоди додають додатковий азарт і можливості для отримання бонусів.
+                </p>
+                <p>
+                  Bedwars на нашому сервері постійно еволюціонує: ми регулярно додаємо нові механіки, функції та коригуємо баланс. Ми прислухаємося до ваших ідей і пропозицій, щоб забезпечити найкращий досвід для кожного гравця.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <svg id="curveUpColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" fill="#131417" stroke="#131417" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0 100 C 20 0 50 0 100 100 Z" />
+      </svg>
+
+      <!-- Games -->
+      <section id="games">
+        <div class="games-background">
+          <div class="container">
+            <h4 class="section-title"><strong>МАПИ</strong></h4>
+            <div class="swiper games-swiper">
+              <div class="swiper-wrapper games-cards">
+                <div class="swiper-slide active">
+                  <a href="#">
+                    <img src="img/games/LECTUS.jpg" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>LECTUS ARENA</h3>
+                    <h4>Командний режим</h4>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/STONEKEEP.jpg" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>STONEKEEP</h3>
+                    <h4>Командний режим</h4>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/TEMPLE.jpg" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>TEMPLE</h3>
+                    <h4>Командний режим</h4>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/EASTWOOD.png" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>EASTWOOD</h3>
+                    <h4>Командний режим</h4>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/LIGHTHOUSE.png" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>LIGHTHOUSE</h3>
+                    <h4>Соло режим</h4>
+                  </div>
+                </div>
+				<div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/ASHFIRE.png" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>ASHFIRE</h3>
+                    <h4>Соло режим</h4>
+                  </div>
+                </div>
+				<div class="swiper-slide">
+                  <a href="#">
+                    <img src="img/games/EGG HUNT.jpg" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3>EGG HUNT</h3>
+                    <h4>Соло режим</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="games-swiper-button-prev"><i class="bx bx-chevron-left"></i></div>
+              <div class="games-swiper-button-next"><i class="bx bx-chevron-right"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <svg id="curveDownColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" fill="#131417" stroke="#131417" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0 0 C 50 100 80 100 100 0 Z" />
+      </svg>
+
+      <!-- Partners -->
+      <section id="sponsor">
+        <div class="sponsor-background">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
+                <img class="sponsor-image" src="img/partnership.png" draggable="false" alt="" />
+              </div>
+              <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                <h4 class="section-title"><strong>КОСМЕТИКА</strong></h4>
+                <div>
+                  <p>Наш сервер пропонує широкий вибір косметичних предметів, які дозволять вам персоналізувати свій образ у грі. У магазині ви знайдете великий асортимент капелюхів і рюкзаків, що дозволяють створити свій неповторний стиль.</p>
+                  <p>Для ще більшої різноманітності у нас є три унікальні кейси:</p>
+                  <p><strong>Перший кейс</strong> включає всі предмети, доступні в магазині, надаючи вам можливість отримати улюблені аксесуари випадковим чином.</p>
+                  <p><strong>Ексклюзивний кейс</strong> містить предмети, які неможливо придбати в магазині — це шанс отримати щось справді особливе!</p>
+                  <p><strong>Кейс з улюбленцями</strong> дозволяє отримати унікальних компаньйонів, яких можна викликати у будь-який момент гри.</p>
+                  <p>Для того щоб випробувати свої нові придбання, ви можете скористатися примірочною, де є можливість оглянути свого персонажа з різних кутів. Натиснувши клавішу F, ви відкриєте вікно з улюбленцями для їх виклику, а комбінація shift+F дозволить обрати анімацію гравця.</p>
+                </div>
+              </div>
+            </div>
+      
+            <div class="swiper sponsor-swiper">
+              <div class="swiper-wrapper sponsor-cards customer-logos text-center">        
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-container">
+          <div class="footer-about">
+            <h3>Про нас</h3>
+            <span>Schicksal Bedwars — це український проект, створений однією людиною, який прагне подарувати унікальний досвід гри в Bedwars. Як розробник, я самостійно займаюся всіма аспектами сервера, включаючи налаштування механік, впровадження нових функцій і забезпечення високої якості гри. Моя мета — створити платформу для українських гравців, де вони можуть насолоджуватись грою в комфортній та дружній атмосфері. Приєднуйтесь до нашої спільноти і відчуйте результат моєї роботи!</span>
+          </div>
+          <div class="footer-social">
+            <img src="img/logo.png" draggable="false" alt="Server Logo" />
+            <span class="copyright">
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Schicksal Bedwars | Всі права захищені<br />Розроблено <a href="https://www.youtube.com/@Schicksalwiki">Schicksal</a>
+            </span>
+            <div class="socials">
+              <a href="mailto:schicksalbedwars@gmail.com" class="email">
+                <i class="bx bxl-gmail"></i>
+              </a>
+              <a href="https://t.me/schbedwars" class="telegram">
+                <i class="bx bxl-telegram"></i>
+              </a>
+              <a href="https://www.youtube.com/@Schicksalwiki" class="youtube">
+                <i class="bx bxl-youtube"></i>
+              </a>
+            </div>            
+          </div>
+          <div class="footer-store">
+            <h3>Магазин</h3>
+            <span>Адміністрація докладає багато зусиль, щоб надати вам унікальний контент. Купівля ігрової валюти не лише покращує ваш ігровий досвід, а й допомагає нам створювати ще більше якісного контенту для вас. Ваша підтримка та участь сприяють розвитку сервера і дозволяють нам постійно вдосконалювати гру. Дякуємо, що допомагаєте нам робити Schicksal Bedwars ще кращим!</span>
+            <a href="#" class="buttonshop">Скоро</a>
+          </div>
+        </div>
+        <div id="scroll-to-bottom"></div>
+      </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
