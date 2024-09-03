@@ -38,10 +38,45 @@
 
   // Navbar
   $(window).on("scroll", function () {
-    if ($(window).scrollTop() > 100) {
-      $(".desktop-navbar").addClass("navbar-scroll");
-    } else {
-      $(".desktop-navbar").removeClass("navbar-scroll");
+    let scrollPos = $(window).scrollTop() + 250;
+    let activeSet = false;
+    let nearestSection = null;
+    let nearestDistance = Infinity;
+
+    $('.navbar-menu a').each(function () {
+      const currLink = $(this);
+      const refElement = $(currLink.attr("href"));
+
+      if (refElement.length) {
+        const sectionTop = refElement.position().top;
+        const distance = Math.abs(sectionTop - scrollPos);
+
+        if (sectionTop <= scrollPos && distance <= 500) {
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestSection = currLink;
+          }
+          activeSet = true;
+        }
+      }
+    });
+
+    if (nearestSection) {
+      $('.navbar-menu a').removeClass("active");
+      nearestSection.addClass("active");
+    }
+
+     // Вибір "Головна", якщо скрол у верхній частині сторінки або на 400px нижче
+     if ($(window).scrollTop() <= 700) {
+      $('.navbar-menu a').removeClass("active");
+      $('.navbar-menu a[href="#top"]').addClass("active");
+      activeSet = true;
+    }
+
+    // Якщо ми в самому низу сторінки, виділяємо останній пункт
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+      $('.navbar-menu a').removeClass("active");
+      $('.navbar-menu a[href="#scroll-to-bottom"]').addClass("active");
     }
   });
 
@@ -98,20 +133,21 @@
 
   $('a[href^="#"]').on('click', function(e) {
     e.preventDefault();
-
+  
     const targetId = $(this).attr('href');
     const targetElement = $(targetId);
-
+  
     if (targetElement.length) {
-      const offset = -85; // Висота лінії навігації
-      const targetPosition = targetElement.offset().top + offset;
-      
-      // Прокручує до цільового елемента миттєво
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'auto' // Без анімації
-      });
+      const offset = 85;
+      const targetPosition = targetElement.offset().top - offset;
+  
+      $('html, body').animate({
+        scrollTop: targetPosition
+      }, 600);
     }
+
+    $('.navbar-menu a').removeClass('active');
+    $(this).addClass('active');
   });
 
   // Games Carousel
