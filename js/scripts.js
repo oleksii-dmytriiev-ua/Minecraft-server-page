@@ -1,6 +1,9 @@
 (function ($) {
   "use strict";
 
+  let scrollToTarget = null;
+  let isScrollingLocked = false;
+
   // Preloader
   $("#page").css("display", "none");
   $(window).on("load", function () {
@@ -30,15 +33,61 @@
     $("#cookie-popup").removeAttr("style");
     $("#btn-cookie").click(function () {
       let date = new Date();
-      date.setTime(date.getTime() + 31536000000);
-      document.cookie = "cookie-consent=true; expires=" + date.toUTCString() + "path=/;";
+      date.setTime(date.getTime() + 31536000000); // 1 year
+      document.cookie = "cookie-consent=true; expires=" + date.toUTCString() + "; path=/;";
       $("#cookie-popup").fadeOut(300);
     });
   }
 
-  // Navbar
-  $(window).on("scroll", function () {
+  // Handle click on navbar links
+  $(document).on('click', '.navbar-menu a', function(e) {
+    e.preventDefault();
+
+    const targetId = $(this).attr('href');
+    const targetElement = $(targetId);
+
+    if (targetElement.length) {
+      const offset = 85;
+      const targetPosition = targetElement.offset().top - offset;
+
+      $('html, body').animate({
+        scrollTop: targetPosition
+      }, 600);
+
+      // Immediately update active class
+      $('.navbar-menu a').removeClass('active');
+      $(this).addClass('active');
+
+      // Set the target section to wait for
+      scrollToTarget = targetElement;
+      isScrollingLocked = true;
+    }
+  });
+
+  // Handle scroll
+  $(window).on("scroll", function() {
+    if (isScrollingLocked) {
+      // Check if the target section is in view
+      const scrollPos = $(window).scrollTop();
+      const targetOffset = scrollToTarget.offset().top;
+      const targetHeight = scrollToTarget.outerHeight();
+      
+      if ( 
+    (scrollPos + $(window).height() >= $(document).height()) ||  
+    scrollPos <= 1 ||  
+    scrollPos == 968 ||  
+    scrollPos == 1508 ||  
+    scrollPos == 2189) {
+    // The target section is in view, or the bottom of the page is reached
+    isScrollingLocked = false;
+    scrollToTarget = null; // Clear the target
+}
+
+      return;
+    }
+
     let scrollPos = $(window).scrollTop() + 250;
+
     let activeSet = false;
     let nearestSection = null;
     let nearestDistance = Infinity;
@@ -48,7 +97,8 @@
       const refElement = $(currLink.attr("href"));
 
       if (refElement.length) {
-        const sectionTop = refElement.position().top;
+        const sectionTop = refElement.offset().top;
+        const sectionBottom = sectionTop + refElement.outerHeight();
         const distance = Math.abs(sectionTop - scrollPos);
 
         if (sectionTop <= scrollPos && distance <= 500) {
@@ -66,94 +116,58 @@
       nearestSection.addClass("active");
     }
 
-     // Вибір "Головна", якщо скрол у верхній частині сторінки або на 400px нижче
-     if ($(window).scrollTop() <= 700) {
+    // Highlight "Головна" if near the top of the page
+    if ($(window).scrollTop() <= 700) {
       $('.navbar-menu a').removeClass("active");
       $('.navbar-menu a[href="#top"]').addClass("active");
-      activeSet = true;
     }
 
-    // Якщо ми в самому низу сторінки, виділяємо останній пункт
+    // Highlight the last item if at the bottom of the page
     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
       $('.navbar-menu a').removeClass("active");
       $('.navbar-menu a[href="#scroll-to-bottom"]').addClass("active");
     }
   });
 
+  // Clone navbar for mobile view
   $(".js-clone-nav").each(function () {
     var $this = $(this);
-
     $this.clone().attr("class", "mobile-navbar-wrap").appendTo(".mobile-navbar-body");
   });
 
-  $("body").on("click", ".js-menu-toggle", function (e) {
-    var $this = $(this);
-    e.preventDefault();
 
-    if ($("body").hasClass("offcanvas-menu")) {
-      $("body").removeClass("offcanvas-menu");
-      $this.removeClass("active");
-    } else {
-      $("body").addClass("offcanvas-menu");
-      $this.addClass("active");
-    }
+  let notificationTimeout; // Глобальная переменная для хранения таймера
 
-    if ($("body").hasClass("offcanvas-menu")) {
-      $(".mobile-mask").addClass("active");
-    } else {
-      $(".mobile-mask").removeClass("active");
-    }
+$("body").on("click", "#copyip", function () {
+  navigator.clipboard.writeText("schbedwars.minecra.fr").then(() => {
+    const notification = document.getElementById('notification');
+    const timerBar = document.getElementById('timer-bar');
+
+    // Сброс таймера, если кнопка нажата повторно
+    clearTimeout(notificationTimeout);
+    timerBar.style.animation = 'none'; // Сброс анимации полоски
+
+    // Небольшая задержка для перезапуска анимации
+    setTimeout(() => {
+      timerBar.style.animation = 'decrease-width 3s linear forwards'; // Запуск анимации полоски
+    }, 10);
+
+    // Показ уведомления
+    notification.style.display = 'block';
+
+    // Скрытие уведомления через 3 секунды
+    notificationTimeout = setTimeout(() => {
+      notification.style.display = 'none';
+    }, 3000);  // Время отображения уведомления — 3 секунды
+  }).catch((error) => {
+    console.error(error);
   });
+});
 
-  $(document).mouseup(function (e) {
-    var container = $(".mobile-navbar");
-
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      if ($("body").hasClass("offcanvas-menu")) {
-        $("body").removeClass("offcanvas-menu");
-        $(".mobile-mask").removeClass("active");
-      }
-    }
-  });
-
-  // Copy IP Button
-  $("body").on("click", "#copyip", function () {
-    navigator.clipboard.writeText("schbedwars.minecra.fr").then((error) => {
-      if (error) {
-        console.error(error);
-      } else {
-        Swal.fire({
-          icon: "success",
-          title: "Server IP Copied",
-          html: "Server IP successfully copied to the clipboard.",
-        });
-      }
-    });
-  });
-
-  $('a[href^="#"]').on('click', function(e) {
-    e.preventDefault();
   
-    const targetId = $(this).attr('href');
-    const targetElement = $(targetId);
-  
-    if (targetElement.length) {
-      const offset = 85;
-      const targetPosition = targetElement.offset().top - offset;
-  
-      $('html, body').animate({
-        scrollTop: targetPosition
-      }, 600);
-    }
-
-    $('.navbar-menu a').removeClass('active');
-    $(this).addClass('active');
-  });
-
   // Games Carousel
   new Swiper(".games-swiper", {
     loop: true,
-    autoplay: true,
     autoplay: {
       delay: 2500,
     },
@@ -172,10 +186,9 @@
     },
   });
 
-  // Cosmetics
+  // Cosmetics Carousel
   new Swiper(".sponsor-swiper", {
     loop: true,
-    autoplay: true,
     autoplay: {
       delay: 2500,
     },
