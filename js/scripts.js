@@ -136,29 +136,26 @@
   });
 
 
-  let notificationTimeout; // Глобальная переменная для хранения таймера
+  let notificationTimeout; 
 
 $("body").on("click", "#copyip", function () {
   navigator.clipboard.writeText("schbedwars.minecra.fr").then(() => {
     const notification = document.getElementById('notification');
     const timerBar = document.getElementById('timer-bar');
 
-    // Сброс таймера, если кнопка нажата повторно
+   
     clearTimeout(notificationTimeout);
-    timerBar.style.animation = 'none'; // Сброс анимации полоски
-
-    // Небольшая задержка для перезапуска анимации
+    timerBar.style.animation = 'none';
+   
     setTimeout(() => {
-      timerBar.style.animation = 'decrease-width 3s linear forwards'; // Запуск анимации полоски
+      timerBar.style.animation = 'decrease-width 3s linear forwards'; 
     }, 10);
 
-    // Показ уведомления
     notification.style.display = 'block';
 
-    // Скрытие уведомления через 3 секунды
     notificationTimeout = setTimeout(() => {
       notification.style.display = 'none';
-    }, 3000);  // Время отображения уведомления — 3 секунды
+    }, 3000);  
   }).catch((error) => {
     console.error(error);
   });

@@ -93,12 +93,11 @@ a.button:hover {
 button {
   position: relative;
   display: inline-block;
-  background: linear-gradient(0deg, #f1960e, #f1a90e); /* Заміна кольору */
+  background: linear-gradient(0deg, #f1960e, #f1a90e);
   box-shadow: 0 3px 0 0 rgb(241 150 14 / 40%), 0 3px 5px 0px rgb(12 9 4 / 35%);
   border-radius: 8px;
   padding: 10px 20px;
   margin-top: 10px;
-  top: 0;
   border: none;
   outline: none;
   font-weight: 700;
@@ -107,16 +106,17 @@ button {
   color: #ffffff;
   text-shadow: 0 4px 5px rgb(28 31 50 / 20%);
   text-transform: uppercase;
-  appearance: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  will-change: transform;
 }
 
-button:hover,
-button:focus {
+button:hover{
   top: 2px;
-  box-shadow: 1px 0 0 rgb(241 150 14 / 40%), 0 1px 5px 0px rgb(12 9 4 / 35%) !important;
+  box-shadow: 1px 0 0 rgb(241 150 14 / 40%), 0 1px 5px 0px rgb(12 9 4 / 35%);
 }
+
 
 a.buttonshop {
   position: relative;
@@ -454,17 +454,16 @@ video {
   object-fit: cover;
 }
 
-/* Белая полоска для уведомления */
 .notification-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px; /* Высота полоски */
-  background-color: white; /* Цвет полоски */
+  height: 5px; 
+  background-color: white; 
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 9999; /* Убедитесь, что полоска поверх всего контента */
+  z-index: 9999; 
 }
 
 .notification-bar.show {
@@ -472,7 +471,7 @@ video {
 }
 
 #copyip {
-  position: relative; /* Устанавливаем относительное позиционирование для кнопки */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #notification {
@@ -484,10 +483,10 @@ video {
   color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: max-content; /* Устанавливаем ширину по содержимому */
-  text-align: center; /* Центрирование текста */
-  z-index: 9999; /* Чтобы уведомление было поверх всего остального контента */
-  overflow: hidden; /* Чтобы скрывать таймер за границами */
+  width: max-content; 
+  text-align: center;
+  z-index: 9999; 
+  overflow: hidden; 
 }
 
 #timer-bar {
@@ -497,7 +496,7 @@ video {
   height: 4px;
   width: 100%;
   background-color: white;
-  animation: decrease-width 3s linear forwards; /* Анимация уменьшения */
+  animation: decrease-width 3s linear forwards; 
 }
 
 @keyframes decrease-width {
@@ -509,11 +508,9 @@ video {
   }
 }
 
-
-/* Обертка для кнопки и уведомления */
 .notification-container {
-  position: relative; /* Относительное позиционирование для контейнера */
-  display: inline-block; /* Чтобы уведомление выравнивалось относительно кнопки */
+  position: relative; 
+  display: inline-block; 
 }
 
 #intro-overlay {
