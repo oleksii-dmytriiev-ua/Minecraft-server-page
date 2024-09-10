@@ -15,13 +15,13 @@ You can view the live site here: [Minecraft Server Page](https://schicksalbedwar
 - ⚡ **Fast and Lightweight**: Minimal loading times and efficient design.
 
 ## Project Structure
-📁 Minecraft-server-page
-┣ 📄 index.html — main HTML file
-┣ 📁 css
-┃ ┗ 📄 style.css — CSS file for styling
-┣ 📁 js
-┃ ┗ 📄 scripts.js — JavaScript file for navigation logic
-┗ 📁 img — images and other media
+- 📁 **Minecraft-server-page**
+  - 📄 `index.html` — main HTML file
+  - 📁 **css**
+    - 📄 `style.css` — CSS file for styling
+  - 📁 **js**
+    - 📄 `scripts.js` — JavaScript file for navigation logic
+  - 📁 **img** — images and other media
 
 ## How to Run Locally
 1. Clone the repository:
