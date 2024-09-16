@@ -23,14 +23,14 @@ You can view the live site here: [Minecraft Server Page](https://schicksalbedwar
     - 📄 `scripts.js` — JavaScript file for navigation logic
   - 📁 **img** — images and other media
 
-## How to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/oleksii-dmytriiev-dev/Minecraft-server-page.git
-2. Open the index.html file in your web browser to view the website locally.
-
 ## JavaScript (Navigation)
 The scripts.js file contains JavaScript code responsible for in-page navigation and smooth scrolling between sections. It provides a better user experience by avoiding full page reloads when navigating to different parts of the site.
 
 ##Responsive Design
 The website is designed to be fully responsive and works across various screen sizes. Using flexbox and media queries, it adapts seamlessly to both desktop and mobile views.
+
+## How to Run Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/oleksii-dmytriiev-dev/Minecraft-server-page.git
+2. Open the index.html file in your web browser to view the website locally.
