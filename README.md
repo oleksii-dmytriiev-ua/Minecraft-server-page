@@ -34,6 +34,3 @@ The scripts.js file contains JavaScript code responsible for in-page navigation 
 
 ##Responsive Design
 The website is designed to be fully responsive and works across various screen sizes. Using flexbox and media queries, it adapts seamlessly to both desktop and mobile views.
-
-## Developed by
-[Oleksii Dmytriiev](https://github.com/oleksii-dmytriiev-dev)
