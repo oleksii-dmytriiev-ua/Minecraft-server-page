@@ -32,5 +32,5 @@ The website is designed to be fully responsive and works across various screen s
 ## How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/oleksii-dmytriiev-dev/Minecraft-server-page.git
+   git clone https://github.com/oleksii-dmytriiev-ua/Minecraft-server-page.git
 2. Open the index.html file in your web browser to view the website locally.
